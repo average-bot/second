@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+/* ----- Förberedande stilar ----- */
+html, body, header, nav, main, footer, div, section, article, aside {margin:0; padding:0;}
+header, nav, main, footer, section, article, aside {display:block;}
+
+a {color:#000;}
+a:link, a:visited {}
+a:hover, a:active {background-color:#FC6;}
+
+/* ----- Allmän stil för layout ----- */
+html, body {height: 100%;}
+
+body {background-color:#EEE5D1; color:#000; font-family:Verdana, Geneva, sans-serif; font-size:12px;
+	display:grid;
+	grid-template-rows: min-content auto min-content;
+	grid-template-columns: auto minmax(300px,900px) auto;
+	grid-template-areas:
+		".	header	."
+		".	main	."
+		"footer	footer	footer";}
+
+header {grid-area:header; background-color:#FC6; box-shadow:5px 5px 10px #999, -5px 5px 10px #999; margin-bottom:10px;}
+header h1 {background-color:#F90;}
+header h1, header h2, header h3 {margin:0; padding:10px;}
+
+main {grid-area:main; padding:10px;}
+main h2, main h3, main h4 {color:#BC1E21; font-style: italic;}
+main h2 {border-bottom:3px double #BC1E21;}
+
+footer {grid-area:footer; background-color:#FC6; border-top:1px solid #F90; box-shadow:0px -5px 10px #999;
+	padding:4px; text-align:center;}
+
+hr {clear:both;}
+
+@media screen and (max-width:400px) {
+	header h1, header h2, header h3 {font-size:1em;}
+}
+
+/* ----- Stil för innehåll i spelet ----- */
+
+/* Rutan med totalpoäng och antal spel */
+#userInfo {float:right; width:200px; padding:4px 8px; text-align:right; margin-left:40px; margin-bottom:20px;
+	background-color:#FC6; border:3px solid #666;}
+#userInfo p {font-size:1.5em; margin:4px 0; padding:0;}
+
+/* Spelplanen */
+#board {float:left;}
+#board, #board td {border:none; border-collapse:collapse; margin:0; padding:0;}
+#board td {padding:2px;}
+#board img {width:60px; height:60px;}
+.mark {font-size:48px;}
+
+/* Plats för nya brickor och knapp för det */
+#control {margin-left:400px; text-align:center;}
+#newBricks, #newBricksBtn {margin-bottom:40px;}
+#newBricks img {width:60px; height:60px;}
+
+/* Plats för meddelanden under spelplanen */
+#message {padding-top:20px; font-size:1.5em; clear:both;}
+
+/* Allmän stil för knappar */
+button {margin:5px; font-size:1.2em; background-color:#69C; border:2px outset #36C; border-radius:10px;}
+button:hover {background-color:#06C; border-style:inset;}
+
+/* Olika classer för img-taggarna, beroende på hur brickan visas */
+/* Förutom att byta bild i img-taggen, ska du också växla mellan dessa classer. */
+.brickEmpty {border:2px solid #006; background-color:transparent; padding:0;} /* Stil för tom plats för bricka */
+.brickFront {border:2px outset #600; background-color:#FFF; padding:0;} /* Stil för bricka där framsidan visas */
+
+/* ----- Stil för VG-uppgiften ----- */
+main {position:relative;}
+#ghost {position:absolute; top:120px; left:250px; opacity:0.8; visibility:hidden;}
+.brickGhost {border:2px solid #006; background-color:#C79D9E; padding:0;} /* Stil för bricka som tas bort av spöket */
+
+/* ----- Stil för guldstjärneuppgiften ----- */
+#moveCount {font-size:2em;}
